@@ -18,11 +18,9 @@ def guess_colour(guesses, hats):
             return "Blue"  # say blue if there's an even number of red hats
         else:
             return "Red"  # say red if there's an odd number of red hats
-    elif (guesses[0] == "Red") & (total_red % 2 == 0):
-        return "Red"  # say red if you know there's an odd number of red hats and the total so far is even
-    elif (guesses[0] == "Red") & (total_red % 2 != 0):
-        return "Blue"  # say blue if you know there's an odd number of red hats and the total so far is odd
-    elif (guesses[0] == "Blue") & (total_red % 2 == 0):
-        return "Blue"  # say blue if you know there's an even number of red hats and the total so far is even
+
+    if ((guesses[0] == "Red") & (total_red % 2 != 0)) | ((guesses[0] == "Blue") & (total_red % 2 == 0)):
+        # if the parity of red hats is the same as the first person indicated, say blue
+        return "Blue"
     else:
-        return "Red"  # say red if you know there's an even number of red hats and the total so far is odd
+        return "Red"
